@@ -1,0 +1,38 @@
+<div class="mobile-menu-items">
+
+    <div class="mobile-menu-list">
+        <ul class="mobile-menu-ul">
+            <li><a href="https://tiendalarecova.com/nuestra-historia/">Nuestra Historia</a></li>
+            <li><a href="https://tiendalarecova.com/como-comprar/">Como comprar</a></li>
+            <li><a href="https://tiendalarecova.com/sobre-envios/">Sobre envíos</a></li>
+            <li><a href="https://tiendalarecova.com/cambios-y-devoluciones/">Cambios y devoluciones</a></li>
+            <li><a href="https://tiendalarecova.com/preguntas-frecuentes/">Preguntas Frecuentes</a></li>
+        </ul>
+    </div>
+    
+    <div class="mobile-menu-account">
+        <div class="mobile-menu-account-sub">
+            <p class="menu-mail"><span>hola@tiendalarecova.com</span></p>
+            <p class="menu-telefono"><span>3541-658177</span></p>
+            <p class="links-cuenta">
+            <a class="crear-cuenta" href="https://tiendalarecova.com/customer/account/create/">Creá tu cuenta</a>|
+            <a class="ingresar" href="#">
+                <?php 
+                    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+                    $customerSession = $objectManager->create('Magento\Customer\Model\Session');
+                    if($customerSession->isLoggedIn()) : ?>
+                    <span class="header_account_link_list logout">
+                        <a class= "header_account_link" href="<?php echo $this->getUrl("customer/account/logout");?>"><?php echo __('Logout')?></a>
+                    </span>
+                <?php else: ?>
+                    <span class="header_account_link_list login">
+                        <a class= "header_account_link" href="<?php echo $this->getUrl("customer/account/login");?>"><?php echo __('Sign in')?></a>
+                    </span>
+                <?php endif;?>
+            </a></p>
+        </div>
+    </div>
+
+
+</div> 
+
